@@ -9,6 +9,9 @@
 #include <string>
 #include <cstdint>
 using namespace std;
+#ifndef M_PI
+#define M_PI 3.14159265358979323846
+#endif
 
 static string ENC="./convert_asr_enc", THK="./convert_asr_thinker", ROOT="./convert_asr", TOK="./convert_asr_tok";
 static vector<float> rdf(const string&p,size_t n){ FILE*f=fopen(p.c_str(),"rb"); if(!f){fprintf(stderr,"open %s\n",p.c_str());exit(1);}
