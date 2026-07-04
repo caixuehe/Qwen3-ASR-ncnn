@@ -15,7 +15,7 @@
 | **端到端 音频 → 文字** | **与 PyTorch 逐字一致** |
 | Conv 前端（pnnx→ncnn，fp16=False） | maxdiff 1.3e-5 |
 
-完整代码见仓库。样例音频采用 `librosa.example("libri1")`（一段 LibriSpeech 英文语音）。
+完整代码见仓库：https://github.com/caixuehe/Qwen3-ASR-ncnn 。样例音频采用 `librosa.example("libri1")`（一段 LibriSpeech 英文语音）。
 
 ## 移植对象
 
