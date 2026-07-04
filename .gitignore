@@ -1,0 +1,15 @@
+build/
+models/
+convert_asr/
+convert_asr_enc/
+convert_asr_thinker/
+convert_asr_tok/
+convert_asr_ncnn/
+third_party/
+*.f32
+*.i32
+*.bin
+*.pt
+*.npy
+scripts/*.log
+build_*
