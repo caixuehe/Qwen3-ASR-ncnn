@@ -13,3 +13,5 @@ third_party/
 *.npy
 scripts/*.log
 build_*
+
+qwen3_asr
