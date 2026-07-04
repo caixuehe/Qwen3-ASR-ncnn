@@ -1,6 +1,6 @@
 # Qwen3-ASR-ncnn
 
-![build](https://github.com/OWNER/Qwen3-ASR-ncnn/actions/workflows/build.yml/badge.svg)
+![build](https://github.com/caixuehe/Qwen3-ASR-ncnn/actions/workflows/build.yml/badge.svg)
 
 A from-scratch C++ port of [Qwen3-ASR](https://github.com/QwenLM/Qwen3-ASR) (0.6B),
 converting audio to text. Feed-forward stages convert to
@@ -50,7 +50,7 @@ runtime. Each network is therefore split:
   → hand-written C++ around plain matmul / softmax.
 
 Two lessons carried over from the sibling
-[Qwen3-TTS-ncnn](https://github.com/OWNER/Qwen3-TTS-ncnn) port:
+[Qwen3-TTS-ncnn](https://github.com/caixuehe/Qwen3-TTS-ncnn) port:
 
 - `pnnx.export(..., fp16=False)` is mandatory — the default fp16 weight storage gives
   ~1e-3 relative error per layer, which deep stacks amplify.
