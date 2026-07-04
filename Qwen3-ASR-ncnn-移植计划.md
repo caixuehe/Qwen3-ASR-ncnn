@@ -55,9 +55,10 @@ Qwen-Omni "Thinker" 结构，音频-LLM：
   - [x] **单可执行 `src/qwen3_asr.cpp`** ✅：wav→mel→frontend→encoder→自建prompt(211)+注入→Thinker(greedy)→BPE。端到端 **文本 == PyTorch 逐字一致（EXACT MATCH）**。纯 C++/OpenMP。
   - [x] **pnnx→ncnn 路径打通** ✅：conv2d 下采样栈转 ncnn(`convert/asr_convert_conv.py`→`convert_asr_ncnn/conv_stack.ncnn.*`)，vs torch **maxdiff 2.1e-6**，`fp16=False`(bin 16.6MB 满 fp32)，pnnx 各 pass 干净(conv2d 全支持，无 vmap 坑)。encoder/Thinker MLP+proj+lm_head 同模式待批量转。
   - [ ] 用 ncnn::Net 接回 C++ 可执行(需 ncnn build + CMake)。
+  - [x] **CMake + CI + README + .gitignore** ✅：`CMakeLists.txt`(MSVC /utf-8 /O2 + OpenMP，构建 qwen3_asr + 5 组件测试，school 上验证通过)、`.github/workflows/build.yml`(ubuntu+windows matrix，纯 C++ 无外部依赖 CI 简单)、README(流水线+结果表+架构分工)、.gitignore。school git 已提交(无二进制)。
   - [ ] KV-cache 加速 Thinker（搬 Talker）。
-  - [ ] CMake 跨平台 + GitHub Actions CI（搬 TTS）。
-  - [ ] 公开 repo + Discussion(Tencent/ncnn Show and tell) + issue #6790 认领。
+  - [ ] 批量转 ncnn(encoder/Thinker MLP+proj+lm_head) + ncnn::Net 接回 C++。
+  - [ ] 公开 repo(clone 到本地 push，去掉计划 md，OWNER→caixuehe) + Discussion(Tencent/ncnn Show and tell) + issue #6790 认领。
 
 ## 确认规格（读 config.json）
 - **模型结构**：`model.thinker.{audio_tower(Qwen3ASRAudioEncoder), model(Qwen3ASRThinkerTextModel), lm_head}`。

@@ -19,7 +19,7 @@ if(OpenMP_CXX_FOUND)
 endif()
 
 # Per-component test harnesses (each verifies one stage against PyTorch golden).
-foreach(t mel_features asr_frontend asr_encoder asr_thinker asr_p4)
+foreach(t mel_features asr_frontend asr_encoder asr_thinker asr_thinker_kv asr_p4)
   add_executable(${t} src/${t}.cpp)
   if(OpenMP_CXX_FOUND)
     target_link_libraries(${t} PRIVATE OpenMP::OpenMP_CXX)
